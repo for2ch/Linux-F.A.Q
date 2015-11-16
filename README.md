@@ -8,6 +8,10 @@
 
 Все примерно одинаковы. Можешь попробовать заменить DE или WM ([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D0%9E%20DE%20%D0%B8%20WM.md)). Если этого недостаточно, то попробуй собрать/скомпиллировать программы под свою систему. Проще всего это делается в дистрибутиве [Gentoo](https://www.gentoo.org/)([ман](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/Gentoo.md)), но при желании, возможно в любом.
 
+####Что делать, если всё зависло?
+
+Нажми `Alt+PrtScr+k`. Графическая оболочка перезапустится ([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/Magic%20in%20SysRQ.md)).
+
 ####Как писать по-русски?
 
 Введи в терминал `setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle`.
@@ -54,10 +58,6 @@
 ####Нужна именно та программа.
 
 Если не готов пользоваться аналогами, то попробуй запустить программу в [wine](https://ru.wikipedia.org/wiki/Wine) или [виртуальной машине](https://ru.wikipedia.org/wiki/Виртуальная_машина).
-
-####Что делать, если всё зависло?
-
-Нажми `Alt+PrtScr+k`. Графическая оболочка перезапустится ([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/Magic%20in%20SysRQ.md)).
 
 ####Нет звука, что делать?
 
