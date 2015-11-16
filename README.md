@@ -41,7 +41,7 @@ Q: Нет звука, что делать?
 A1: Скорее всего у тебя [pulseaudio](https://ru.wikipedia.org/wiki/PulseAudio), тогда стоит открыть `pavucontrol` и посмотреть, какое устройство выводит звук
 
 А2: Если `pavucontrol` отсутствует, вероятно, у тебя [alsa](https://ru.wikipedia.org/wiki/ALSA), выполни `alsamixer` и убедись, что выбрано правильное устройство, а так же нажми “m”, если видишь под графами “MM”.
-![alt text](https://raw.githubusercontent.com/for2ch/Linux-F.A.Q/master/resources/pictures/alsamixer.png "alsamixer")
+![alsamixer](https://raw.githubusercontent.com/for2ch/Linux-F.A.Q/master/resources/pictures/alsamixer.png "alsamixer")
 
 ####Q: Здесь нет ответа.
 
