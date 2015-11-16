@@ -2,7 +2,7 @@
 
 ####Какой дистрибутив Linux самый лучший?
 
-Лучшего нет. Начни с [Mint](https://linuxmint.com), [OpenSuse](https://ru.opensuse.org) или [Manjaro](https://manjaro.github.io). Скриншоты как у хакеров в фильмах, скорее всего, от [ArchLinux](https://www.archlinux.org).
+Лучшего нет. Начни с [Mint](https://linuxmint.com), [OpenSuse](https://ru.opensuse.org) или [Manjaro](https://manjaro.github.io).  Когда освоишь их, можешь попробовать [ArchLinux](https://www.archlinux.org).
 
 ####Какой дистрибутив самый быстрый?
 
@@ -51,7 +51,7 @@
 
 [Список альтернатив всяческому софту](https://alternativeto.net/)
 
-####Хочу как на винде!
+####Нужна именно та программа.
 
 Если не готов пользоваться аналогами, то попробуй запустить программу в [wine](https://ru.wikipedia.org/wiki/Wine) или [виртуальной машине](https://ru.wikipedia.org/wiki/Виртуальная_машина).
 
