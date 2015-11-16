@@ -42,3 +42,7 @@ A1: Скорее всего у тебя [pulseaudio](https://ru.wikipedia.org/wi
 
 А2: Если `pavucontrol` отсутствует, вероятно, у тебя [alsa](https://ru.wikipedia.org/wiki/ALSA), выполни `alsamixer` и убедись, что выбрано правильное устройство, а так же нажми “m”, если видишь под графами “MM”.
 ![alt text](https://github.com/for2ch/Linux-F.A.Q./blob/master/resources/pictures/alsamixer.png "alsamixer")
+
+####Q: Здесь нет ответа.
+
+A: Пожалуй, самый лучший набор инструкций на все случаи жизни есть на [Арчевики](https://wiki.archlinux.org/) и её [русском варианте](https://wiki.archlinux.org/index.php/Main_page_(Русский)). Попробуй поискать там или спросить в треде, для этого он и создан.
