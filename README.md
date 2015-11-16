@@ -51,7 +51,7 @@
 
 ####Что делать, если всё зависло?
 
-Нажми `Alt+PrtScr+k`. Графическая оболочка перезапустится([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/Magic%20in%20SysRQ.md)).
+Нажми `Alt+PrtScr+k`. Графическая оболочка перезапустится ([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/Magic%20in%20SysRQ.md)).
 
 ####Нет звука, что делать?
 
