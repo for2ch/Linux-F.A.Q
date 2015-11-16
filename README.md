@@ -51,9 +51,7 @@
 
 ####Что делать, если всё зависло?
 
-Нажми `Alt+PrtScr+k`. Графическая оболочка перезапустится.
-
-[magic SysRQ](https://ru.wikipedia.org/wiki/SysRq). Работает напрямую с ядром и выручит всегда.
+Нажми `Alt+PrtScr+k`. Графическая оболочка перезапустится([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/Magic%20in%20SysRQ.md)).
 
 ####Нет звука, что делать?
 
