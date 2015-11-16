@@ -2,7 +2,7 @@
 
 ####Какой дистрибутив Linux самый лучший?
 
-Лучшего нет. Начни с [Mint](https://linuxmint.com), [OpenSuse](https://ru.opensuse.org) или [Manjaro](https://manjaro.github.io). Чтобы быть *как хакеры*, можешь поставить [ArchLinux](https://www.archlinux.org).
+Лучшего нет. Начни с [Mint](https://linuxmint.com), [OpenSuse](https://ru.opensuse.org) или [Manjaro](https://manjaro.github.io). Скриншоты как у хакеров в фильмах, скорее всего, от [ArchLinux](https://www.archlinux.org).
 
 ####Какой дистрибутив самый быстрый?
 
