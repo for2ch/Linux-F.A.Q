@@ -24,7 +24,7 @@
 
 1. Автоматически
 
-2. Вручную. Например так [пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%82%D0%BA%D0%B0.md).
+2. Вручную. Например так([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%82%D0%BA%D0%B0.md)).
 
 | Раздел        | Размер        | ФС          |
 | ------------- | ------------- | ----------- |
