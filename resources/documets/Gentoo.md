@@ -60,309 +60,496 @@ ping -c3 ya.ru
 
 **ВНИМАНИЕ!** Если вы выбрали Hybrid ISO (LiveDVD) образ, как я и советовал сделать, в консоле вбиваем команды
 _passwd ваш\_пароль_
+
 попросит повторить - повторяем, запоминаем
+
 _su_
+
 вводим тот самый пароль и дальше работаем уже как SuperUser
 
 **2.** Открываем программу cfdisk и смотрим, что имеем
+
 _cfdisk_
 
 **3.** Ограничимся тремя разделами: _boot_, _swap_, _/_ 
+
 Выбираем _Free Space_ (свободное место) и жмём **[ Write ]**
+
 Создаём раздел с _128МB_
+
 Создаём раздел с _2G_
+
 Создаём раздел со всем оставшимся местом
+
 На раздел с 128 мегабайтами ставим \* **[ Bootable ]**
 
+
 Предположим, что у нас это разделы
+
 _/dev/sda1_
+
 _/dev/sda2_
+
 _/dev/sda3_
+
 НО У ВАС ЭТО МОГУТ БЫТЬ СОВСЕМ ДРУГИЕ ЦИФРЫ (не sda1,sda2,sda3, а sda5,sda6,sda7, например), ЗАПОМНИТЕ ИХ
 
 Нажимаем **[ Write ] и** выходим **[ Quit ]**
 
 **4.** Создаём файловые системы, подключаем свап
+
 _mkfs.vfat /dev/sda1_
+
 _mkfs.ext4 /dev/sda3_
+
 _mkswap /dev/sda2_
+
 _swapon /dev/sda2_
+
 _cd /mnt/gentoo_
 
 **5.** Монтируем разделы на диск
 _mount /dev/sda3 /mnt/gentoo_
-_mkdir /mnt/gentoo/boot_
+
+**(если BIOS)** _mkdir /mnt/gentoo/boot_
+
 **(если EFI)** _mkdir /mnt/gentoo/boot/efi_
-_mount /dev/sda1 /mnt/gentoo/boot_
+
+**(если BIOS)** _mount /dev/sda1 /mnt/gentoo/boot_
+
 **(если EFI)** _mount /mnt/gentoo/boot/efi_
 
+
 **6.** Скачиваем stage 3 и дерево портажей
-_links http://mirror.yandex.ru/gentoo-distfiles_   там идём к    **/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-<ближайшая к нам дата>.tar.bz2**
+
+_links http://mirror.yandex.ru/gentoo-distfiles_   там идём к   
+
+**/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-<ближайшая к нам дата>.tar.bz2**
+
 _links http://mirror.yandex.ru/gentoo-distfiles_   там идём к    **/snapshots/portage-latest.tar.bz2**
+
 После скачивания выходим кнопкой Q
 
 **7.** Распаковываем. Это может занять порядка 5-10 минут.
+
 _tar xvjpf stage3-*.tar.bz2 && tar xvjf /mnt/gentoo/portage-latest.tar.bz2 -C /mnt/gentoo/usr_
 
 **7.1.** (необязательный, но желательный пункт) Указываем немного параметров для оптимизации. Это ускорит процесс компиляции.
+
 _nano /mnt/gentoo/etc/portage/make.conf_
+
 В самом верху добавляем строку:
+
 _MAKEOPTS="-jx"_
-Вместо х укажите кол-во ядер вашего процессора +1, например, если у вас 8 ядер (или 4 с гипертредингом) то пишите _MAKEOPTS="-j9"_ 
+
+Вместо х укажите кол-во ядер вашего процессора +1, например, если у вас 8 ядер (или 4 с гипертредингом) то пишите
+
+_MAKEOPTS="-j9"_ 
+
 Выходим ctrl+x жмём y для сохранения
 
+
 **8.** Настраиваем портаж
+
 **СТАРЫЙ СПОСОБ (проверенно)**
+
 _mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf_
+
 Выбираем Yandex
 
 **НОВЫЙ СПОСОБ (не проверялся)**
+
 _mkdir /mnt/gentoo/etc/portage/repos.conf_
+
 _cp /mnt/gentoo/usr/share/portage/config/repos.conf /mnt/gentoo/etc/portage/repos.conf/gentoo.conf_
+
 _cp -L /etc/resolv.conf /mnt/gentoo/etc/_
 
 **9.** Монтируем разделы proc, sys, dev
+
 _mount -t proc none /mnt/gentoo/proc_
+
 _mount -o bind /dev /mnt/gentoo/dev_
+
 _mount -t sysfs none /mnt/gentoo/sys_
 
 **10.** Переходим в нашу систему через chroot и обновляем дерево портажей
+
 _chroot /mnt/gentoo /bin/bash_
+
 _env-update && source /etc/profile_
+
 _export PS1="(chroot) $PS1"_
+
 _emerge --sync_
 
 **11.** Читаем новости и выбираем профиль
+
 _eselect news read_
+
 _eselect profile set 3_
 
 **12.** Настроим кодировку, раскладку и время
+
 _nano /etc/locale.gen_
+
 Стираем всё и добавляем:
+
 _en\_US.UTF-8 UTF-8_
+
 _ru\_RU.UTF-8 UTF-8_
+
 Выходим ctrl+x жмём y для сохранения
 
 _cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime_
+
 _nano /etc/conf.d/keymaps_
+
 _KEYMAP="us"_ меняем на _KEYMAP="ru"_
+
 Выходим ctrl+x жмём y для сохранения
 
 _nano /etc/conf.d/clock_
+
 Откроется пустое окно, пишем туда:
+
 _CLOCK="local"_
+
 _TIMEZONE="Europe/Moscow"_
+
 Выходим ctrl+x жмём y для сохранения
 
 **12.1.** (Рекомендуется)
+
 _emerge -1v app-portage/cpuinfo2cpuflags && echo -e CPU\_FLAGS\_X86=\"$(cpuinfo2cpuflags-x86)\" >> /etc/portage/make.conf && emerge -c app-portage/cpuinfo2cpuflags_
 
+
 **13.** Качаем программы для сборки ядра и собираем ядро (займет ~10-15 минут)
+
 _emerge gentoo-sources genkernel_
+
 _genkernel all_
 
 **14.** Качаем модули и добавляем их в автозагрузку (займёт ~15-20 минут)
+
 _emerge dhcpcd vixie-cron udev syslog-ng_
+
 _rc-update add dhcpcd default_
+
 _rc-update add syslog-ng default_
+
 _rc-update add vixie-cron default_
+
 _rc-update add udev boot_
 
 **15.** Правим fstab
+
 _nano /etc/fstab_
+
 Меняем 
-_/dev/BOOT_ на _/dev/sda1_ 
+
+**(если BIOS)** _/dev/BOOT_ на _/dev/sda1_ 
+
 _/dev/ROOT_ на _/dev/sda3_
+
 _/dev/SWAP_ на _/dev/sda2_
+
 **(Если EFI)** меняем в _BOOT_ строке _/boot_ на _/boot/efi_ и файловую систему (след параметр) меняем на _vfat_
+
 **ПОМНИТЕ, У ВАС ЭТО МОГУТ БЫТЬ ДРУГИЕ ЦИФРЫ!**
+
 _/dev/cdrom_ - ставим _#_ перед этой строкой (_#/dev/cdrom_) или просто стираем строку
 
 
 **16.** Настраиваем сеть
+
 _ifconfig_
+
 Смотрим имя своего адаптера (смотрим в самом начале будет eth0 либо enp3s0 либо что-то в этом духе). Допустим, что наш адаптер это _eth0_
+
 _nano /etc/conf.d/net_
+
 Откроется пустое окно, пишем туда 
+
 _config\_eth0="dhcp"_
 
 Если у вас не _eth0_ то вместо него впишите имя своего адаптера
+
 Выходим ctrl+x жмём y для сохранения
 
 **17.** Создаём сетевую службу и ставим её в автозапуск
+
 _cd /etc/init.d_
+
 _ln -s net.lo net.eth0_
+
 _rc-update add net.eth0 default_
+
 Если у вас не _eth0_ то вместо него впишите имя своего адаптера
 
 **18.** Ставим загрузчик _grub2_ и _os-prober_ (займёт ~10-20 минут)
+
 _emerge grub os-prober_
 
 **ЕСЛИ BIOS**
+
 _grub2-install /dev/sda_
+
 _grub2-mkconfig -o /boot/grub/grub.cfg_
 
 **ЕСЛИ UEFI**
+
 _echo GRUB\_PLATFORMS="efi-64" >> /etc/portage/make.conf_ (если у вас 32 битка то заменяем _efi-64_ на _efi-32_)
+
 _grub2-install --target=x86\_64-efi --efi-directory=/boot_
+
 _grub2-mkconfig -o /boot/grub/grub.cfg_
+
 Смотрим, если он определил системы, значит всё хорошо.
 
 **18.** Ставим пароль для суперпользователя
+
 _passwd_
 
 **19.** Перезагружаемся
+
 _exit_
+
 _cd_
+
 _umount -R /mnt/gentoo_
+
 _reboot_
 
 **20.** Проверяем, всё ли хорошо?
+
 **Login**: _root_
+
 **Password**: _ваш\_пароль_
+
 _ping -c3 ya.ru_
+
 Если пинг пошёл - мы молодцы, всё сделали правильно и самая сложная часть уже позади, можно передохнуть.
 
 ##НАСТРОЙКА
 
 **1.** Настройка видеокарты.
+
 Посмотреть какая у вас видеокарта можно командой
+
 _lspci | grep -i VGA_
+
 **_а)_** Если у вас Radeon то сперва нужно сходить _https://wiki.gentoo.org/wiki/Radeon_ и посмотреть там табличку Feature support. В зависимости от вашей карты вписывавем параметры
+
 _nano /etc/portage/make.conf_
+
 _VIDEO\_CARDS="данные из таблицы"_
 
+
 Обновляем систему
+
 _emerge --ask --changed-use --deep @world_
 
 Качаем драйвер
+
 _emerge radeon-ucode_
+
 Если будет ругаться, попробуйте 
+
 _emerge linux-firmware_
 
 **_b)_** Если у вас Nvidia, то вам повезло - делать почти ничего не надо.
+
 _nano /etc/portage/make.conf_
+
 В самом низу добавляем 
+
 _VIDEO\_CARDS="nouveau"_
+
 Выходим ctrl+x жмём y для сохранения
+
 Обновляем систему
+
 _emerge --ask --changed-use --deep @world_
 
 **_c)_** Если у вас Intel (встроенная видеокарта), то как и в случае с Radeon нам нужны таблицы и данные. Идём _https://wiki.gentoo.org/wiki/Intel_ и смотрим таблицу, данные берем из столбика _VIDEO\_CARDS_.
+
 _nano /etc/portage/make.conf_
+
 В самом низу добавляем 
+
 _VIDEO\_CARDS="данные из таблицы"_
+
 Выходим ctrl+x жмём y для сохранения
 
 Обновляем систему
+
 _emerge --ask --changed-use --deep @world_
 
 Перезагружаемся. Консоль должна поменять разрешение на разрешение вашего экрана.
 
 **2.** Установка X-Server и Cinnamon (займёт ~3 часа)
+
 _nano /etc/portage/make.conf_
+
 Найдите строку _USE_ и смените её на:
+
 _USE="icu pulseaudio X glamor bindist python NetworkManager consolekit infinality minizip sqlite gnome-keyring"_
+
 Выходим ctrl+x жмём y для сохранения
 
 _nano .xinitrc_
+
 Откроется пустое окно, пишем туда
+
 _exec cinnamon-session_
+
 Выходим ctrl+x жмём y для сохранения
 
 Вбиваем эти команды, жмём Enter и идём спать/на работу/на учёбу. К вашему приходу как раз всё будет готово.
+
 _emerge xorg-server cinnamon_
+
 Далее
+
 _emerge gtk+extra xf86-video-modesetting sudo terminator_
+
 _rc-update add dbus default_
+
 _rc-update add consolekit default_
+
 _rc-update add NetworkManager default_
+
 _rc-update del net.eth0 default_ (вместо eth0 имя своей сетевой карты, которое вводили ранее)
+
 _reboot_
+
 **3.** Скрещиваем пальцы и пишем заветное
+
 _startx_
 
 Если всё хорошо, вы войдёте в Cinnamon. Если вылетела ошибка и краш, попробуйте обновить систему: _emerge -uDNav world_
-(!) После каждой перезагрузки, чтобы попасть в систему вам нужно будет вбивать логин, пароль и вводить команду "_startx_". Это дело можно автоматизировать с помощью разных логин менеджеров, но об этом позже.
+
+**(!)** После каждой перезагрузки, чтобы попасть в систему вам нужно будет вбивать логин, пароль и вводить команду "_startx_". Это дело можно автоматизировать с помощью разных логин менеджеров, но об этом позже.
 
 **4.** Первым делом зайдите в настройки и создайте нового пользователя, добавте его во все возможные группы и придумайте пароль от 6 символов, одни только цифры нельзя, обязательно добавте символ или букву.
+
 В меню найдите терминал **Terminator** и вбейте команду
+
 _visudo_
 
 Ищём там строки и убираем значок # перед ними. Это называется "раскомментировать" опцию.
+
  _%wheel ALL=(ALL) ALL_
+ 
  **ИЛИ**
+ 
  _%wheel ALL=(ALL) NOPASSWD: ALL_ (Я бы не советовал трогать эту строку т.к. она полностью отключит необходимость вводить пароль после sudo. Это как бы небезопасно, лучше оставьте # перед ней)
 
 Выходим ctrl+x жмём y для сохранения
 
 **5.** Заходим с нового пользователя
+
 Либо ищем в меню Logout/End-Session (или как-то так)
+
 Либо жмём ALT+CTRL+F1, выходим в консоль и нажимаем CTRL+C, если процесс не завершился
+
 Выходим из root:
+
 _exit_
 
 Логинимся под новым пользователем, как только вы это сделали, добавьте сессию Cinnamon:
+
 _nano .xinitrc_
+
 Откроется пустое окно, пишем туда
+
 _exec cinnamon-session_
+
 Выходим ctrl+x жмём y для сохранения
+
 _startx_
 
 **6.** По желанию можно установить браузер. Для этого жмём меню, ищем там программу Terminator, это наша виртуальная консоль.
+
 Бинарник файрфокса (быстрая установка):   _sudo emerge firefox-bin_
+
 Сорц файрфокс (медленная установка):      _sudo emerge firefox_
+
 Хромиум:                                  _sudo emerge chromium_
+
 Хром:                                     _sudo emerge google-chrome_
 
 РУССИФИКАЦИЯ
 
 _nano /etc/env.d/02locale_
+
 Откроется пустое окно, пишем туда
+
 _LC\_ALL=""_
+
 _LANG="ru\_RU.UTF-8"_
+
 Выходим ctrl+x жмём y для сохранения
 
 _nano /etc/conf.d/consolefont_
+
 Меняем _consolefont="default8x16"_ на _consolefont="cyr-sun16"_
+
 Выходим ctrl+x жмём y для сохранения
 
 _eselect locale list_
+
 Ищем ru_RU.utf8 (обычно под номером 4)
+
 _eselect locale set 4_
 
 Перезагружаемся
 
 UPD: Рекомендую установить пакет шрифтов Noto, они очень хорошо смотрятся как системные шрифты и включают в себя поддержку многих языков т.е. в браузере большая часть языком будет отображаться не крокозябрами
+
 _sudo emerge noto_
 
 ##АВТОЛОГИН
 
 **1.** Если хотите запускать десктоп без вводов логинов и паролей то качаем LightDM:
+
 _sudo emerge lightdm_
 
 **2.** Настраиваем XDM.
+
 _sudo nano /etc/conf.d/xdm_
+
 Меняем строку _DISPLAYMANAGER="xdm"_ на _DISPLAYMANAGER="lightdm"_
+
 Выходим ctrl+x жмём y для сохранения
 
 **3.** Делаем ему автозагрузку
+
 _rc-update add xdm default_
 
 Выходим ctrl+x жмём y для сохранения
 
 ##КРАТКИЙ ВВОД В КОНСОЛЬКУ
+
 Если вы работаете под обычным пользователем, перед этими командами ставим sudo (sudo emerge итд)
 
 _emerge пакет_                               установка
+
 _emerge --autounmask-write =пакет-версия_    разрешить устанавливать версии пакетов не по-умолчанию (пример _emerge --autounmask-write =firefox-40.0.3_).       
+
 Имеющиеся версии пакетов можно легко нагуглить "gentoo имя программы, в первых ссылках будет оф репозиторий там смотрим какие есть версии". Либо сразу искать тут _https://packagestest.gentoo.org/_
 
 _dispatch-conf_                              просмотреть (l) измененные конфиги и подтвердить (u) либо опровергнуть (z) изменения. Вводите эту команду после использования команды выше, чтобы подтвердить изменения и после этого уже скачивайте нужную вам версию.
 
 _emerge -C пакет_                            удаление 
+
 _emerge --sync_                              синхронизация
+
 _emerge -uDN world_                          обновление всего
+
 _emerge -uDN system_                         обновление только системных пакетов
+
 _emerge --depclean_                          удаление лишних зависимостей после чистки системы или удаления какой-либо программы
+
 _emerge -e world_                              полная пересборка ВСЕЙ СИСТЕМЫ (это не просто долго, это ОЧЕНЬ долго)
