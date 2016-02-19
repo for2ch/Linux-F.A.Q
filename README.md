@@ -10,6 +10,8 @@
 
 Все примерно одинаковы. Можешь попробовать заменить DE или WM ([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D0%9E%20DE%20%D0%B8%20WM.md)). Если этого недостаточно, то попробуй собрать/скомпиллировать программы под свою систему. Проще всего это делается в дистрибутиве [Gentoo](https://www.gentoo.org/)([ман](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/Gentoo.md)), но при желании, возможно в любом.
 
+Для относительно слабых/старых ПК может подойти [PuppyRus](http://www.puppyrus.org/).
+
 ####Что делать, если всё зависло?
 
 Нажми `Alt+PrtScr+k`. Графическая оболочка перезапустится ([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/Magic%20in%20SysRQ.md)).
