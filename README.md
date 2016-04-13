@@ -4,8 +4,6 @@
 
 Лучшего нет. Начни с [Mint](https://linuxmint.com), [OpenSuse](https://ru.opensuse.org) или [Manjaro](https://manjaro.github.io).  Когда освоишь их, можешь попробовать [ArchLinux](https://www.archlinux.org).([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D0%94%D0%B8%D1%81%D1%82%D1%80%D0%B8%D0%B1%D1%83%D1%82%D0%B8%D0%B2%D1%8B.md))
 
-![never forget](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/pictures/pnier.png)
-
 ####Какой дистрибутив самый быстрый?
 
 Все примерно одинаковы. Можешь попробовать заменить DE или WM ([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D0%9E%20DE%20%D0%B8%20WM.md)). Если этого недостаточно, то попробуй собрать/скомпиллировать программы под свою систему. Проще всего это делается в дистрибутиве [Gentoo](https://www.gentoo.org/)([ман](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/Gentoo.md)), но при желании, возможно в любом.
