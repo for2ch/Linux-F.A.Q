@@ -45,6 +45,7 @@ https://wiki.debian.org/EFIStub
 
 Да. 4Гб.([Пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/swap.md))
 Если RAM 8Gb и больше то ненужно. Если легких оконный менеджер то и 4Gb обычно хватит.
+Однако своп нужен для гибернации (suspend to disk), если вместо гибернации используете обычный suspend to RAM то swap не нужен.
 
 ####Нужна программа.
 
