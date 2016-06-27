@@ -37,7 +37,7 @@ https://wiki.debian.org/EFIStub
 
 | Раздел        | Размер        | ФС          |
 | ------------- | ------------- | ----------- |
-| `/boot/efi`  | 50Mb  | FAT32
+| `/boot/efi`  | 64Mb  | FAT32
 | `/`  | 40Gb  | ext4
 | `/home/`  | Оставшееся место  | ext4
 
