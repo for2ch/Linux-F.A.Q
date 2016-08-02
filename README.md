@@ -6,7 +6,7 @@
 
 ####Какой дистрибутив самый быстрый?
 
-Все примерно одинаковы. Можешь попробовать заменить DE или WM ([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D0%9E%20DE%20%D0%B8%20WM.md)). Если этого недостаточно, то попробуй собрать/скомпиллировать программы под свою систему. Проще всего это делается в дистрибутиве [Gentoo](https://www.gentoo.org/)([ман](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/Gentoo.md)), но при желании, возможно в любом.
+Все примерно одинаковы. Можешь попробовать заменить DE или WM ([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D0%9E%20DE%20%D0%B8%20WM.md)). Если этого недостаточно, то попробуй собрать/скомпилировать программы под свою систему. Проще всего это делается в дистрибутиве [Gentoo](https://www.gentoo.org/)([ман](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/Gentoo.md)), но при желании, возможно в любом.
 
 Для относительно слабых/старых ПК может подойти [PuppyRus](http://www.puppyrus.org/).
 
@@ -23,7 +23,7 @@
 ####Могу ли я поставить Linux на EFI?
 
 Да. Рекомендуемые дистрибутивы могут сделать это автоматически.
-Но лучше воспользоватся efibootmgr и сделать efi-stub, таким образом можно будет грузить ядро прямо из uefi без сторонних загрузчиков.
+Но лучше воспользоваться efibootmgr и сделать efi-stub, таким образом можно будет грузить ядро прямо из uefi без сторонних загрузчиков.
 https://wiki.debian.org/EFIStub
 
 
@@ -31,9 +31,9 @@ https://wiki.debian.org/EFIStub
 
 ####Как разбить диск.
 
-1. Автоматически
+1. Автоматически;
 
-2. Вручную. Например так([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%82%D0%BA%D0%B0.md)).
+2. Вручную. Например, так ([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%82%D0%BA%D0%B0.md)).:
 
 | Раздел        | Размер        | ФС          |
 | ------------- | ------------- | ----------- |
@@ -41,10 +41,10 @@ https://wiki.debian.org/EFIStub
 | `/`  | 40Gb  | ext4
 | `/home/`  | Оставшееся место  | ext4
 
-####Нужен ли swap (файл подкачки)
+####Нужен ли swap (файл подкачки)?
 
-Да. 4Гб.([Пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/swap.md))
-Если RAM 8Gb и больше то ненужно. Если легких оконный менеджер то и 4Gb обычно хватит.
+Да, 4Гб ([Пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/swap.md)).
+Если RAM 8Gb и больше, то ненужно. Если легкий оконный менеджер, то и 4Gb обычно хватит.
 Однако своп нужен для гибернации (suspend to disk), если вместо гибернации используете обычный suspend to RAM то swap не нужен.
 
 ####Нужна программа.
@@ -52,15 +52,15 @@ https://wiki.debian.org/EFIStub
 Если кратко, то
 
 * Музыка:
-  * `moc`,`cmus` для любителей терминала
+  * `moc`, `cmus` для любителей терминала
   * `deadbeef` для любителей потыкать мышкой
 * Фильмы, аниме:
   * `mpv` для любителей минимализма и клавиатуры
   * `smplayer` для любителей мыши
 
-[Обширный список программ с описаниями на русском языке](https://wiki.archlinux.org/index.php/List_of_applications_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9))
+[Обширный список программ с описаниями на русском языке.](https://wiki.archlinux.org/index.php/List_of_applications_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9))
 
-[Список альтернатив всяческому софту](https://alternativeto.net/)
+[Список альтернатив всяческому софту.](https://alternativeto.net/)
 
 ####Нужна именно та программа.
 
@@ -68,7 +68,7 @@ https://wiki.debian.org/EFIStub
 
 ####Нет звука, что делать?
 
-1. Скорее всего у тебя [pulseaudio](https://ru.wikipedia.org/wiki/PulseAudio), тогда стоит открыть `pavucontrol` и посмотреть, какое устройство выводит звук
+1. Скорее всего у тебя [pulseaudio](https://ru.wikipedia.org/wiki/PulseAudio), тогда стоит открыть `pavucontrol` и посмотреть, какое устройство выводит звук;
 
 2. Если `pavucontrol` отсутствует, вероятно, у тебя [alsa](https://ru.wikipedia.org/wiki/ALSA), выполни `alsamixer` и убедись, что выбрано правильное устройство, а так же нажми “m”, если видишь под графами “MM”.
 
