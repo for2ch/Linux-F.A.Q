@@ -2,13 +2,14 @@
 
 ####Какой дистрибутив Linux самый лучший?
 
-Лучшего нет. Начни с [Antergos](https://antergos.com/), [OpenSuse](https://ru.opensuse.org) или [Manjaro](https://manjaro.github.io).  Когда освоишь их, можешь попробовать [ArchLinux](https://www.archlinux.org). ([Пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D0%94%D0%B8%D1%81%D1%82%D1%80%D0%B8%D0%B1%D1%83%D1%82%D0%B8%D0%B2%D1%8B.md))
+Лучшего нет. Начни с [Debian](https://www.debian.org/), [OpenSuse](https://ru.opensuse.org) или [Fedora] (https://getfedora.org/).  Когда освоишь их, можешь попробовать [ArchLinux](https://www.archlinux.org) или [Gentoo](https://gentoo.org/). ([Пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D0%94%D0%B8%D1%81%D1%82%D1%80%D0%B8%D0%B1%D1%83%D1%82%D0%B8%D0%B2%D1%8B.md))
 
 ####Какой дистрибутив самый быстрый?
 
 Все примерно одинаковы. Можешь попробовать заменить DE или WM ([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D0%9E%20DE%20%D0%B8%20WM.md)). Если этого недостаточно, то попробуй собрать/скомпилировать программы под свою систему. Проще всего это делается в дистрибутиве [Gentoo](https://www.gentoo.org/) ([ман](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/Gentoo.md)), но при желании, возможно в любом.
+Also BSD faster than Linux.
 
-Для относительно слабых/старых ПК может подойти [PuppyRus](http://www.puppyrus.org/).
+Для относительно слабых/старых ПК может подойти [Void Linux](http://www.voidlinux.eu/).
 
 ####Что делать, если всё зависло?
 
@@ -16,7 +17,7 @@
 
 ####Как писать по-русски?
 
-Введи в терминал `setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle`.
+Введи в терминал `setxkbmap -layout us,ru -option grp:alt_shift_toggle`.
 
 Теперь *alt+shift* переключает раскладку. Если не найдёшь в настройках DE, то добавь в автозагрузку.
 
