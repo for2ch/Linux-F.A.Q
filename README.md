@@ -1,26 +1,26 @@
 # F.A.Q.
 
-####Какой дистрибутив Linux самый лучший?
+#### Какой дистрибутив Linux самый лучший?
 
 Лучшего нет. Начни с [Linux Mint](http://mintlinux.ru/), [OpenSuse](https://ru.opensuse.org) или [Fedora] (https://getfedora.org/).  Когда освоишь их, можешь попробовать [Void Linux](http://www.voidlinux.eu/), [ArchLinux](https://www.archlinux.org) или [Gentoo](https://gentoo.org/). ([Пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D0%94%D0%B8%D1%81%D1%82%D1%80%D0%B8%D0%B1%D1%83%D1%82%D0%B8%D0%B2%D1%8B.md))
 
-####Какой дистрибутив самый быстрый?
+#### Какой дистрибутив самый быстрый?
 
 Все примерно одинаковы. Можешь попробовать заменить DE или WM ([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D0%9E%20DE%20%D0%B8%20WM.md)). Если этого недостаточно, то попробуй собрать/скомпилировать программы под свою систему. Проще всего это делается в дистрибутиве [Gentoo](https://www.gentoo.org/) ([ман](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/Gentoo.md)), но при желании, возможно в любом.
 
 Для относительно слабых/старых ПК может подойти [Puppy Linux](http://puppylinux.org/main/Overview%20and%20Getting%20Started.htm) или [Void Linux](http://www.voidlinux.eu/).
 
-####Что делать, если всё зависло?
+#### Что делать, если всё зависло?
 
 Нажми `Alt+PrtScr+k`. Графическая оболочка перезапустится ([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/Magic%20in%20SysRQ.md)).
 
-####Как писать по-русски?
+#### Как писать по-русски?
 
 Введи в терминал `setxkbmap -layout us,ru -option grp:alt_shift_toggle`.
 
 Теперь *alt+shift* переключает раскладку. Если не найдёшь в настройках DE, то добавь в автозагрузку.
 
-####Могу ли я поставить Linux на EFI?
+#### Могу ли я поставить Linux на EFI?
 
 Да. Рекомендуемые дистрибутивы могут сделать это автоматически.
 Но лучше воспользоваться efibootmgr и сделать efi-stub, таким образом можно будет грузить ядро прямо из uefi без сторонних загрузчиков.
@@ -29,7 +29,7 @@ https://wiki.debian.org/EFIStub
 
 Если хочешь сам, то ознакомься вот с этой [инструкцией](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F%20%D0%BF%D0%BE%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B5%20%D1%81%20EFI.md).
 
-####Как разбить диск.
+#### Как разбить диск.
 
 1. Автоматически;
 
@@ -41,13 +41,13 @@ https://wiki.debian.org/EFIStub
 | `/`  | 40Gb  | ext4
 | `/home/`  | Оставшееся место  | ext4
 
-####Нужен ли swap (файл подкачки)?
+#### Нужен ли swap (файл подкачки)?
 
 Да, 4Гб ([пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/swap.md)).
 Если RAM 8Gb и больше, то ненужно. Если оконный менеджер легкий, то и 4Gb должно хватить.
 Однако своп нужен для гибернации (suspend to disk), если вместо гибернации используете обычный suspend to RAM то swap не нужен.
 
-####Нужна программа.
+#### Нужна программа.
 
 Если кратко, то:
 
@@ -62,11 +62,11 @@ https://wiki.debian.org/EFIStub
 
 [Список альтернатив всяческому софту.](https://alternativeto.net/)
 
-####Нужна именно та программа.
+#### Нужна именно та программа.
 
 Если не готов пользоваться аналогами, то попробуй запустить программу в [wine](https://ru.wikipedia.org/wiki/Wine) или [виртуальной машине](https://ru.wikipedia.org/wiki/Виртуальная_машина).
 
-####Нет звука, что делать?
+#### Нет звука, что делать?
 
 1. Скорее всего у тебя [pulseaudio](https://ru.wikipedia.org/wiki/PulseAudio), тогда стоит открыть `pavucontrol` и посмотреть, какое устройство выводит звук;
 
@@ -74,6 +74,6 @@ https://wiki.debian.org/EFIStub
 
 ![alsamixer](https://raw.githubusercontent.com/for2ch/Linux-F.A.Q/master/resources/pictures/alsamixer.png "alsamixer")
 
-####Здесь нет ответа.
+#### Здесь нет ответа.
 
 Возможно, он найдётся на нашей [вики-страничке](https://github.com/for2ch/Linux-F.A.Q/wiki). Или пришло то самое время спросить в треде.
