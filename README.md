@@ -2,7 +2,7 @@
 
 #### Какой дистрибутив Linux самый лучший?
 
-Лучшего нет. Начни с [Linux Mint](http://mintlinux.ru/), [OpenSuse](https://ru.opensuse.org) или [Fedora](https://getfedora.org/).  Когда освоишь их, можешь попробовать [Void Linux](http://www.voidlinux.eu/), [ArchLinux](https://www.archlinux.org) или [Gentoo](https://gentoo.org/). ([Пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D0%94%D0%B8%D1%81%D1%82%D1%80%D0%B8%D0%B1%D1%83%D1%82%D0%B8%D0%B2%D1%8B.md))
+Лучшего нет. Начни с [Linux Mint](http://mintlinux.ru/), [Manjaro](https://manjaro.ru/) или [Fedora](https://getfedora.org/).  Когда освоишь их, можешь попробовать [Void Linux](http://www.voidlinux.eu/), [ArchLinux](https://www.archlinux.org) или [Gentoo](https://gentoo.org/). ([Пояснение](https://github.com/for2ch/Linux-F.A.Q/blob/master/resources/documets/%D0%94%D0%B8%D1%81%D1%82%D1%80%D0%B8%D0%B1%D1%83%D1%82%D0%B8%D0%B2%D1%8B.md))
 
 #### Какой дистрибутив самый быстрый?
 
